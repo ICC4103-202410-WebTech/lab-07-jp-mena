@@ -60,4 +60,27 @@ Tag.delete_all
     tag = Tag.create(name: "Etiqueta_para_publicación_existente_#{post.id}")
     post.tags << tag
   end
+  
+  john_doe = User.create(
+    name: "John Doe",
+    email: "john.doe@example.com",
+    password: "password"
+  )
 
+  john_doe_post_1 = john_doe.posts.create(
+    title: "Post 1 by John Doe",
+    content: "Content of post 1 by John Doe",
+    published_at: Time.current
+  )
+
+  john_doe_post_2 = john_doe.posts.create(
+    title: "Post 2 by John Doe",
+    content: "Content of post 2 by John Doe",
+    published_at: Time.current
+  )
+
+  tag_1 = Tag.create(name: "Tag 1")
+  tag_2 = Tag.create(name: "Tag 2")
+
+  john_doe_post_1.tags << tag_1
+  john_doe_post_2.tags << tag_2
